@@ -78,6 +78,27 @@ class WP_Admin_Dark_Theme_Settings {
 			'default'           => 16,
 		) );
 
+		register_setting( 'wpadt_settings_group', 'wpadt_enable_dark_theme', array(
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => '1',
+		) );
+
+		add_settings_section(
+			'wpadt_general_settings',
+			__( 'General Settings', 'wp-admin-dark-theme' ),
+			array( $this, 'general_settings_callback' ),
+			'wpadt-settings'
+		);
+
+		add_settings_field(
+			'wpadt_enable_dark_theme',
+			__( 'Enable Dark Theme', 'wp-admin-dark-theme' ),
+			array( $this, 'render_enable_dark_theme_field' ),
+			'wpadt-settings',
+			'wpadt_general_settings'
+		);
+
 		add_settings_section(
 			'wpadt_colors_settings',
 			__( 'Custom Theme Colors', 'wp-admin-dark-theme' ),
@@ -110,10 +131,29 @@ class WP_Admin_Dark_Theme_Settings {
 	}
 
 	/**
+	 * General settings section callback.
+	 */
+	public function general_settings_callback() {
+		echo '<p>' . esc_html__( 'Toggle the dark theme globally from here, which is especially useful on mobile devices where the admin bar toggle might be hidden.', 'wp-admin-dark-theme' ) . '</p>';
+	}
+
+	/**
+	 * Render "Enable Dark Theme" checkbox.
+	 */
+	public function render_enable_dark_theme_field() {
+		$enabled = get_option( 'wpadt_enable_dark_theme', '1' );
+		?>
+		<input type="hidden" name="wpadt_enable_dark_theme" value="0" />
+		<input type="checkbox" name="wpadt_enable_dark_theme" id="wpadt_enable_dark_theme" value="1" <?php checked( '1', $enabled, true ); ?> />
+		<label for="wpadt_enable_dark_theme"><?php esc_html_e( 'Dark theme active globally.', 'wp-admin-dark-theme' ); ?></label>
+		<?php
+	}
+
+	/**
 	 * Colors settings section callback.
 	 */
 	public function colors_settings_callback() {
-		echo '<p>' . esc_html__( 'Customize the colors of your dark theme. You can also use the toggle button in the admin bar to quickly switch between dark and normal modes.', 'wp-admin-dark-theme' ) . '</p>';
+		echo '<p>' . esc_html__( 'Customize the colors of your dark theme:', 'wp-admin-dark-theme' ) . '</p>';
 	}
 
 	/**
