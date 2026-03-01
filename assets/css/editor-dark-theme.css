@@ -1,0 +1,53 @@
+/*
+ * WP Admin Dark Theme - TinyMCE Editor styles
+ */
+
+body#tinymce.wp-editor {
+    background-color: #1e262c !important;
+    color: #c5d1db !important;
+}
+
+body#tinymce.wp-editor a {
+    color: #56a2d3 !important;
+}
+
+body#tinymce.wp-editor a:hover {
+    color: #7abde8 !important;
+}
+
+body#tinymce.wp-editor h1,
+body#tinymce.wp-editor h2,
+body#tinymce.wp-editor h3,
+body#tinymce.wp-editor h4,
+body#tinymce.wp-editor h5,
+body#tinymce.wp-editor h6 {
+    color: #eef2f5 !important;
+}
+
+body#tinymce.wp-editor blockquote {
+    color: #92a0ac !important;
+    border-left-color: #384652 !important;
+}
+
+body#tinymce.wp-editor pre,
+body#tinymce.wp-editor code {
+    background-color: #171d22 !important;
+    color: #eef2f5 !important;
+}
+
+body#tinymce.wp-editor table,
+body#tinymce.wp-editor th,
+body#tinymce.wp-editor td {
+    border-color: #384652 !important;
+}
+
+/* Also ensure content styles don't force white backgrounds inline if we can help it */
+body#tinymce.wp-editor [style*="background-color: white"],
+body#tinymce.wp-editor [style*="background-color: #ffffff"],
+body#tinymce.wp-editor [style*="background-color: #fff"] {
+    background-color: transparent !important;
+}
+
+.post-status-info {
+    color: var(--adt-text-main) !important;
+}

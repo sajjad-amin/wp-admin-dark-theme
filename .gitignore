@@ -1,0 +1,33 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor folders
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Ignoring the macOS specific files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
